@@ -244,6 +244,13 @@ form button {
     color: #fff;
     cursor: pointer;
 }
+.search-feedback {
+    max-width: 400px;
+    margin: 8px auto 0;
+    color: #b33939;
+    font-weight: 700;
+    text-align: center;
+}
 @media (max-width: 768px) {
     main {
         padding: 16px 10px;
