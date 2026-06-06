@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 320">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#f8f0e8" />
+      <stop offset="100%" stop-color="#ffd3d0" />
+    </linearGradient>
+  </defs>
+  <rect width="480" height="320" rx="24" ry="24" fill="url(#bg)" />
+  <circle cx="240" cy="120" r="80" fill="#ffffffaa" />
+  <path d="M180 120 q20 -40 40 0 q20 -40 40 0 q20 -40 40 0" fill="#f0c0c0" stroke="#d08080" stroke-width="6" />
+  <path d="M170 140 c30 20 140 20 170 0" fill="#ffffff" opacity="0.8" />
+  <rect x="160" y="140" width="160" height="80" rx="20" ry="20" fill="#f5e0d8" stroke="#d8b0a2" stroke-width="6" />
+  <text x="240" y="90" text-anchor="middle" font-size="28" fill="#6a2c70" font-family="Arial, Helvetica, sans-serif">Peach Melba</text>
+  <text x="240" y="230" text-anchor="middle" font-size="20" fill="#5a3a4d" font-family="Arial, Helvetica, sans-serif">Cake</text>
+</svg>
