@@ -8,32 +8,22 @@ function activatePanel(tabName) {
 function performSearch(searchInput, noResults) {
     if (!searchInput) return;
     const filter = searchInput.value.toLowerCase();
-    const panels = document.querySelectorAll('.tab-panel');
-    let visibleCount = 0;
-    let firstMatchingPanel = null;
+    const activePanel = document.querySelector('.tab-panel.active');
 
-    panels.forEach(panel => {
-        const cards = panel.querySelectorAll('.cake-card');
-        let panelHasMatch = false;
-
-        cards.forEach(cake => {
-            const text = cake.textContent.toLowerCase();
-            const isMatch = text.includes(filter);
-            cake.style.display = isMatch ? '' : 'none';
-            if (isMatch) {
-                visibleCount += 1;
-                panelHasMatch = true;
-            }
-        });
-
-        if (panelHasMatch && !firstMatchingPanel) {
-            firstMatchingPanel = panel;
-        }
-    });
-
-    if (filter && firstMatchingPanel) {
-        activatePanel(firstMatchingPanel.dataset.tab);
+    if (!activePanel) {
+        if (noResults) noResults.hidden = true;
+        return;
     }
+
+    const cards = activePanel.querySelectorAll('.cake-card');
+    let visibleCount = 0;
+
+    cards.forEach(cake => {
+        const text = cake.textContent.toLowerCase();
+        const isMatch = text.includes(filter);
+        cake.style.display = isMatch ? '' : 'none';
+        if (isMatch) visibleCount += 1;
+    });
 
     if (noResults) {
         noResults.hidden = visibleCount > 0;
@@ -50,6 +40,9 @@ function initTabs() {
                 const selectedTab = button.dataset.tab;
                 buttons.forEach(btn => btn.classList.toggle('active', btn === button));
                 panels.forEach(panel => panel.classList.toggle('active', panel.dataset.tab === selectedTab));
+                const searchInput = document.getElementById('search-input');
+                const noResults = document.getElementById('no-results');
+                performSearch(searchInput, noResults);
             });
         });
     });
